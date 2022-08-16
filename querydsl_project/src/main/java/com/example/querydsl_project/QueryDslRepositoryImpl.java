@@ -16,11 +16,11 @@ public class QueryDslRepositoryImpl implements QueryDslTodoCustomRepository {
     private final JPAQueryFactory jpaQueryFactory;
 
     @Override
-    public List<TodoEntity> findAllByDeleteYn(String doneYn) {
+    public List<TodoEntity> findAllByDeleteYn(String deleteYn) {
         JPAQuery<TodoEntity> query = jpaQueryFactory
                 .select(todoEntity)
                 .from(todoEntity)
-                .where(todoEntity.deleteYn.eq(doneYn));
+                .where(todoEntity.deleteYn.eq(deleteYn));
         return query.fetch();
 
     }
